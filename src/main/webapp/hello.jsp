@@ -6,7 +6,7 @@
 <table border="0">
 <tr>
 <td align=center>
-<img src="images/tomcat.gif">
+<img src="../docs/images/tomcat.gif">
 </td>
 <td>
 <h1>This is Sample Application JSP Page - TEST</h1>
