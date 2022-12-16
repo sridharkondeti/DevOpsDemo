@@ -1,10 +1,10 @@
-package jenkins;
+package com.hello;
 
 public class HelloWorld {
   public void hello() {
-    return "This is the first Hello World Web Application using Tomcat/Servlet!!! - 1";
+    Syste.out.println("This is the first Hello World Web Application using Tomcat/Servlet!!! - 1");
   }
   public void hello_1() {
-    return "Test";
+    System.out.println("Test");
   }
 }
