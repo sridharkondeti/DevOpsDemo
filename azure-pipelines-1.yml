@@ -26,4 +26,4 @@ steps:
     summaryFileLocation: '$(System.DefaultWorkingDirectory)/MyApp/**/site/cobertura/coverage.xml'
     reportDirectory: '$(System.DefaultWorkingDirectory)/MyApp/**/site/cobertura'
 - task: GitSecrets@1
-  - script: 'docker run -t gesellix/trufflehog https://github.com/sridharkondeti/DevOpsDemo.git'
+  script: 'docker run -t gesellix/trufflehog https://github.com/sridharkondeti/DevOpsDemo.git'
