@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
-- main
+- azure-pipelines
 
 pool:
   vmImage: ubuntu-latest
@@ -28,4 +28,3 @@ steps:
       echo 'Hello world'
       docker run -t gesellix/trufflehog https://github.com/sridharkondeti/DevOpsDemo.git
       docker run -t owasp/zap2docker-stable zap-baseline.py -t http://44.197.235.113:8080/gs-maven-0.1.0
-    failOnStderr: true
