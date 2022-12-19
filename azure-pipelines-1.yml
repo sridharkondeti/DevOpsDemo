@@ -1,9 +1,4 @@
 # Maven
-- task: Docker@2
-  inputs:
-    command: 'start'
-    arguments: 'https://github.com/sridharkondeti/DevOpsDemo.git'
-    container: 'gesellix/trufflehog'
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
@@ -30,3 +25,8 @@ steps:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: '$(System.DefaultWorkingDirectory)/MyApp/**/site/cobertura/coverage.xml'
     reportDirectory: '$(System.DefaultWorkingDirectory)/MyApp/**/site/cobertura'
+- task: Docker@2
+  inputs:
+    command: 'start'
+    arguments: 'https://github.com/sridharkondeti/DevOpsDemo.git'
+    container: 'gesellix/trufflehog'
