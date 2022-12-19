@@ -24,7 +24,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      ls -ltr
+      free -h
       echo 'Hello world'
       docker run -t gesellix/trufflehog https://github.com/sridharkondeti/DevOpsDemo.git
       docker run -t owasp/zap2docker-stable zap-baseline.py -t http://44.197.235.113:8080/gs-maven-0.1.0
