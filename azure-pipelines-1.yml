@@ -25,8 +25,9 @@ steps:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: '$(System.DefaultWorkingDirectory)/MyApp/**/site/cobertura/coverage.xml'
     reportDirectory: '$(System.DefaultWorkingDirectory)/MyApp/**/site/cobertura'
-- task: Docker@2
+- task: Bash@3
   inputs:
-    command: 'start'
-    arguments: 'https://github.com/sridharkondeti/DevOpsDemo.git'
-    container: 'gesellix/trufflehog'
+    targetType: 'inline'
+    script: |
+      ls -ltr
+      echo 'Hello world'
