@@ -10,13 +10,10 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: Maven@3
+- task: Bash@3
   inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+    targetType: 'inline'
+    script: |
+      docker run -t gesellix/trufflehog https://github.com/sridharkondeti/DevOpsDemo.git
+      docker run -t owasp/zap2docker-stable zap-baseline.py -t http://44.197.235.113:8080/gs-maven-0.1.0  || true
+      mvn --help
