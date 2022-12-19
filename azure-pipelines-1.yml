@@ -31,4 +31,4 @@ steps:
     script: |
       ls -ltr
       echo 'Hello world'
-      docker '--help'
+      docker run -t gesellix/trufflehog https://github.com/sridharkondeti/DevOpsDemo.git
