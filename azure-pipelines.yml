@@ -10,13 +10,23 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: Maven@3
+- task: Bash@3
   inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+    targetType: 'inline'
+    script: |
+      docker run -t gesellix/trufflehog https://github.com/sridharkondeti/DevOpsDemo.git
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      mvn clean
+      mvn compile
+      mvn package
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'scp -o StrictHostKeyChecking=no -i EC2Key.pem -r target/gs-maven-0.1.0 ubuntu@44.197.235.113:/home/ubuntu/apache-tomcat-10.0.27/webapps'
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'docker run -t owasp/zap2docker-stable zap-baseline.py -t http://44.197.235.113:8080/gs-maven-0.1.0/hello.jsp  || true'
