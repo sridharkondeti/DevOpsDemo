@@ -20,11 +20,6 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-- task: PublishCodeCoverageResults@1
-  inputs:
-    codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '$(System.DefaultWorkingDirectory)/MyApp/**/site/cobertura/coverage.xml'
-    reportDirectory: '$(System.DefaultWorkingDirectory)/MyApp/**/site/cobertura'
 - task: Bash@3
   inputs:
     targetType: 'inline'
@@ -32,3 +27,4 @@ steps:
       ls -ltr
       echo 'Hello world'
       docker run -t gesellix/trufflehog https://github.com/sridharkondeti/DevOpsDemo.git
+      docker run -t owasp/zap2docker-stable zap-baseline.py -t http://44.197.235.113/:8080/gs-maven-0.1.0
