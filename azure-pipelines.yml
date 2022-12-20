@@ -15,7 +15,12 @@ steps:
     targetType: 'inline'
     script: |
       pwd
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      pwd
       hostname
-      users
-      ifconfig
-      ip a
+      echo $BASH_ENV
+      echo 'Hello World!!!'
+    bashEnvValue: '''ASDFGHJKLLIJNFIBVNFIUNVIUNVUF'''
