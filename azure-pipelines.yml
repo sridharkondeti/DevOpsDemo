@@ -16,5 +16,6 @@ steps:
     script: |
       pwd
       hostname
+      users
       ifconfig
       ip a
